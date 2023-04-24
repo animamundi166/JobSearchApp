@@ -1,0 +1,14 @@
+@import '../../styles/colors';
+
+.card {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  background-color: #F7F7F8;
+  padding: 40px 0;
+
+  .vacancy_column {
+    display: flex;
+    flex-direction: column;
+  }
+}

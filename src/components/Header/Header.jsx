@@ -1,13 +1,17 @@
 import style from './Header.module.scss';
-import ReactLogo from '../../assets/Logo.svg';
+import Logo from '../../assets/Logo.svg';
 
 const Header = () => {
   return (
-    <header className={style.main}>
-      <div className={style.logo}>
-        <img src={ReactLogo} alt='React Logo' />{' '}
+    <header>
+      <div className={style.logo_section}>
+        <img className={style.logo} src={Logo} alt='Logo' />
+        <span className={style.logo_text}>Jobored</span>
       </div>
-      <span>Jobored</span>
+      <div className={style.toogle_section}>
+        <span className={style.text}>Поиск Вакансий</span>
+        <span className={style.text}>Избранное</span>
+      </div>
     </header>
   );
 };

@@ -1,0 +1,12 @@
+@import '../../styles/colors';
+
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 315px;
+  height: 360px;
+  border: 1px solid $grey200;
+  border-radius: 12px;
+  background-color: $white;
+}
