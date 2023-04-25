@@ -9,4 +9,47 @@
   border: 1px solid $grey200;
   border-radius: 12px;
   background-color: $white;
+
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+
+  .filters_caption {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    color: $black;
+  }
+
+  .reset_item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    .reset_item *:hover {
+      color: $blue400;
+      stroke: $blue400;
+    }
+
+    .reset_caption {
+      font-family: 'Inter';
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      color: $grey500;
+    }
+  }
+}
+
+.title {
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: $black;
+  padding-bottom: 8px;
 }

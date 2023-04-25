@@ -2,22 +2,20 @@
 
 header {
   display: flex;
-  // justify-content: space-between;
   align-items: center;
   height: 84px;
   padding: 10px 162px;
-  gap: 308px;
   background-color: $white;
 
   .logo_section {
     display: flex;
     align-items: center;
     gap: 12px;
+    margin-right: auto;
 
     .logo {
       width: 30px;
       height: 30px;
-      margin-left: 162px;
     }
 
     .logo_text {
@@ -33,17 +31,20 @@ header {
 
   .toogle_section {
     display: flex;
-    // flex: auto;
     gap: 60px;
+    position: absolute;
+    width: 275px;
+    height: 20px;
+    left: calc(50% - 275px/2 + 0.5px);
+    top: 32px;
+
 
     .text {
       font-family: 'Inter';
-      font-style: normal;
       font-weight: 500;
       font-size: 16px;
       line-height: 20px;
       color: $blue500Main;
-      margin: 0 30px;
     }
   }
 }

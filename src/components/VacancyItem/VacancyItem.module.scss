@@ -3,8 +3,6 @@
 .card {
   display: flex;
   justify-content: space-between;
-  width: 773px;
-  height: 137px;
   background: $white;
   border: 1px solid $grey200;
   border-radius: 12px;
@@ -77,9 +75,10 @@
       margin-left: 8px;
     }
   }
+}
 
-  .favorite_icon {
-    width: 22px;
-    height: 22px;
+.star {
+  &:hover * {
+    stroke: $blue500Main;
   }
 }

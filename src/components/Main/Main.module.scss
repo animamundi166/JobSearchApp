@@ -2,13 +2,14 @@
 
 .card {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   gap: 28px;
   background-color: #F7F7F8;
-  padding: 40px 0;
+  padding: 40px 162px;
 
   .vacancy_column {
     display: flex;
     flex-direction: column;
+    flex-grow: 1
   }
 }

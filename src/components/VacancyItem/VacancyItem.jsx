@@ -1,11 +1,11 @@
 import styles from './VacancyItem.module.scss';
-import Location from '../../assets/Location.svg';
-import Favorite from '../../assets/Favorite.svg';
+import { ReactComponent as Favorite } from '../../assets/Favorite.svg';
+import { ReactComponent as Location } from '../../assets/Location.svg';
 
 const VacancyItem = () => {
   return (
     <div className={styles.card}>
-      <div className={styles.left}>
+      <div>
         <p className={styles.profession}>
           <a href={'/'} target='_blank' rel='noopener noreferrer'>
             Менеджер-дизайнер
@@ -19,13 +19,13 @@ const VacancyItem = () => {
         </p>
 
         <p className={styles.location}>
-          <img className={styles.location_icon} src={Location} alt='Location' />
+          <Location />
           <span className={styles.town}>Новый Уренгой</span>
         </p>
       </div>
 
-      <div className={styles.right}>
-        <img className={styles.favorite_icon} src={Favorite} alt='Favorite' />
+      <div>
+        <Favorite className={styles.star} />
       </div>
     </div>
   );

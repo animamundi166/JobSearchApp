@@ -1,11 +1,11 @@
 import style from './Header.module.scss';
-import Logo from '../../assets/Logo.svg';
+import { ReactComponent as Logo } from '../../assets/Logo.svg';
 
 const Header = () => {
   return (
     <header>
       <div className={style.logo_section}>
-        <img className={style.logo} src={Logo} alt='Logo' />
+        <Logo />
         <span className={style.logo_text}>Jobored</span>
       </div>
       <div className={style.toogle_section}>
