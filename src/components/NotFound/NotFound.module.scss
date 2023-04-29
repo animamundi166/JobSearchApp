@@ -1,0 +1,31 @@
+@import '../../styles/colors';
+
+.container {
+  height: calc(100vh - 84px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .title {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #343A40;
+    margin: 32px 0;
+  }
+
+  .button_text {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 155%;
+    color: $blue600;
+    padding: 10px 24px;
+    background: #DEECFF;
+    border-radius: 8px;
+  }
+}

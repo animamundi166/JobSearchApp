@@ -30,7 +30,7 @@
     align-items: center;
     gap: 4px;
 
-    .reset_item *:hover {
+    &:hover * {
       color: $blue400;
       stroke: $blue400;
     }

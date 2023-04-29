@@ -6,7 +6,7 @@ const SearchPanel = () => {
   return (
     <label>
       <div className={style.search}>
-        <Search className={style.magnifier} />
+        <Search />
         <input
           type='text'
           placeholder='Введите название вакансии'
