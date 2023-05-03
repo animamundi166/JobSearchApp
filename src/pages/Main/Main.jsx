@@ -1,10 +1,10 @@
 import styles from './Main.module.scss';
-import Filter from '../Filter/Filter';
-import VacancyItem from '../vacancyItem/VacancyItem';
-import SearchPanel from '../SearchPanel/SearchPanel';
-import Loader from '../Loader/Loader';
+import Filter from '../../components/Filter/Filter';
+import SearchPanel from '../../components/SearchPanel/SearchPanel';
+import Loader from '../../components/Loader/Loader';
 import NotFound from '../NotFound/NotFound';
 import { useVacanciesQuery } from '../../hooks/useVacanciesQuery';
+import VacancyItem from '../../components/VacancyItem/VacancyItem';
 
 const Main = () => {
   const { isLoading, error, vacancies } = useVacanciesQuery();
@@ -16,7 +16,6 @@ const Main = () => {
   if (error) {
     return <NotFound />;
   }
-  console.log(vacancies);
 
   return (
     <div className={styles.card}>

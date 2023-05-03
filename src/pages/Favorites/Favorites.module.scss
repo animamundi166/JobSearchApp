@@ -13,6 +13,11 @@ header {
     gap: 12px;
     margin-right: auto;
 
+    .logo {
+      width: 30px;
+      height: 30px;
+    }
+
     .logo_text {
       font-family: 'Poppins';
       font-style: normal;
@@ -52,5 +57,9 @@ header {
   .active {
     color: $blue500Main;
     font-weight: 500;
+  }
+
+  .pending {
+    color: blue;
   }
 }

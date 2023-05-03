@@ -1,18 +1,28 @@
-import style from './Header.module.scss';
+import styles from './Header.module.scss';
 import { ReactComponent as Logo } from '../../assets/Logo.svg';
+import { NavLink, Outlet } from 'react-router-dom';
+
+const setActive = ({ isActive }) => (isActive ? styles.active : '');
 
 const Header = () => {
   return (
-    <header>
-      <div className={style.logo_section}>
-        <Logo />
-        <span className={style.logo_text}>Jobored</span>
-      </div>
-      <div className={style.toogle_section}>
-        <span className={style.text}>Поиск Вакансий</span>
-        <span className={style.text}>Избранное</span>
-      </div>
-    </header>
+    <>
+      <header>
+        <h2 className={styles.logo_section}>
+          <Logo />
+          <span className={styles.logo_text}>Jobored</span>
+        </h2>
+        <nav>
+          <NavLink to={'/'} className={setActive}>
+            Поиск Вакансий
+          </NavLink>
+          <NavLink to={'/favorites'} className={setActive}>
+            Избранное
+          </NavLink>
+        </nav>
+      </header>
+      <Outlet />
+    </>
   );
 };
 

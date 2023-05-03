@@ -4,6 +4,12 @@ import { ReactComponent as Location } from '../../assets/Location.svg';
 import { formatSalary } from '../../utils/formatSalary';
 import { useState } from 'react';
 import clsx from 'clsx';
+import { Link } from 'react-router-dom';
+import {
+  createFavoritesArray,
+  removeFromFavoritesArray,
+  setLocalStorage,
+} from '../../utils/localStorage';
 
 const VacancyItem = ({
   vacancy_id,
@@ -16,23 +22,13 @@ const VacancyItem = ({
 }) => {
   const [isFavorited, setIsFavorited] = useState(false);
 
-  const setLocalStorage = (key, value) => {
-    localStorage.setItem(key, JSON.stringify(value));
-  };
-
-  const removeLocalStorage = key => {
-    localStorage.removeItem(key);
-  };
-
   const handleClick = (isFavorited, id) => {
     if (!isFavorited) {
       setIsFavorited(true);
-      console.log(isFavorited);
-      setLocalStorage(id, id);
+      setLocalStorage(createFavoritesArray(id));
     } else {
       setIsFavorited(false);
-      removeLocalStorage(id);
-      console.log(isFavorited);
+      setLocalStorage(removeFromFavoritesArray(id));
     }
   };
 
@@ -40,9 +36,13 @@ const VacancyItem = ({
     <div className={styles.card}>
       <div>
         <p className={styles.profession}>
-          <a href={'/'} target='_blank' rel='noopener noreferrer'>
+          <Link
+            to={`/vacancy/${vacancy_id}`}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             {profession}
-          </a>
+          </Link>
         </p>
 
         <p className={styles.salary_and_type}>
