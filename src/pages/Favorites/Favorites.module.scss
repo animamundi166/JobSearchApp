@@ -1,65 +1,15 @@
 @import '../../styles/colors';
 
-header {
+.container {
+  width: 773px;
+  margin: 0 auto;
   display: flex;
-  align-items: center;
-  height: 84px;
-  padding: 10px 162px;
-  background-color: $white;
+  flex-direction: column;
+  flex: 1;
 
-  .logo_section {
+  .card {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-right: auto;
-
-    .logo {
-      width: 30px;
-      height: 30px;
-    }
-
-    .logo_text {
-      font-family: 'Poppins';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 36px;
-      letter-spacing: -0.02em;
-      color: $black;
-    }
-  }
-
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: absolute;
-    width: 275px;
-    height: 20px;
-    padding: 5px;
-    left: calc(50% - 275px/2 + 0.5px);
-
-    a {
-      font-family: 'Inter';
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 20px;
-      color: $black;
-      padding: 5px;
-
-      &:hover {
-        color: $blue500Main;
-        font-weight: 500;
-      }
-    }
-  }
-
-  .active {
-    color: $blue500Main;
-    font-weight: 500;
-  }
-
-  .pending {
-    color: blue;
+    flex-direction: column;
+    gap: 16px;
   }
 }

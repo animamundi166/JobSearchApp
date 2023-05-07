@@ -1,17 +1,25 @@
 import styles from './Main.module.scss';
 import Filter from '../../components/Filter/Filter';
 import SearchPanel from '../../components/SearchPanel/SearchPanel';
-import Loader from '../../components/Loader/Loader';
 import NotFound from '../NotFound/NotFound';
-import { useVacanciesQuery } from '../../hooks/useVacanciesQuery';
 import VacancyItem from '../../components/VacancyItem/VacancyItem';
+import Paginate from '../../components/Paginate/Paginate';
+import { useState } from 'react';
+import { TOTAL } from '../../constants';
+import { useQuery } from '@tanstack/react-query';
+import api from '../../API/api';
+import { Loader } from '@mantine/core';
 
 const Main = () => {
-  const { isLoading, error, vacancies } = useVacanciesQuery();
+  const [activePage, setPage] = useState(1);
 
-  if (isLoading) {
-    return <Loader />;
-  }
+  const {
+    isLoading,
+    error,
+    data: vacancies,
+  } = useQuery(['Data', activePage], () => api.getVacancies(activePage - 1), {
+    keepPreviousData: true,
+  });
 
   if (error) {
     return <NotFound />;
@@ -20,21 +28,22 @@ const Main = () => {
   return (
     <div className={styles.card}>
       <Filter />
-      <div className={styles.vacancy_column}>
+      <div className={styles.right_column}>
         <SearchPanel />
-        {vacancies.length > 0 &&
-          vacancies.map(item => (
-            <VacancyItem
-              key={item.id}
-              vacancy_id={item.id}
-              profession={item.profession}
-              town={item.town.title}
-              type_of_work={item.type_of_work.title}
-              payment_to={item.payment_to}
-              payment_from={item.payment_from}
-              currency={item.currency}
-            />
-          ))}
+        {isLoading ? (
+          <div className={styles.loader}>
+            <Loader variant='dots' />
+          </div>
+        ) : (
+          <div className={styles.vacancy_column}>
+            {vacancies &&
+              vacancies.map(item => (
+                <VacancyItem key={item.id} vacancy={item} />
+              ))}
+          </div>
+        )}
+
+        <Paginate activePage={activePage} setPage={setPage} total={TOTAL} />
       </div>
     </div>
   );

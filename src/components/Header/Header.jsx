@@ -1,6 +1,6 @@
 import styles from './Header.module.scss';
 import { ReactComponent as Logo } from '../../assets/Logo.svg';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const setActive = ({ isActive }) => (isActive ? styles.active : '');
 
@@ -21,7 +21,6 @@ const Header = () => {
           </NavLink>
         </nav>
       </header>
-      <Outlet />
     </>
   );
 };

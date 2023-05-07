@@ -9,6 +9,8 @@ label {
   background: $white;
   border: 1px solid $grey200;
   border-radius: 8px;
+  margin-bottom: 16px;
+  // width: 100%;
 
   &:focus-within {
     border-color: $blue500Main;

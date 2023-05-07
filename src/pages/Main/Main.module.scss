@@ -2,14 +2,27 @@
 
 .card {
   display: flex;
-  justify-content: start;
   gap: 28px;
-  background-color: #F7F7F8;
-  padding: 40px 162px;
+  max-width: 1160px;
+  margin: 0 auto;
 
-  .vacancy_column {
+  .right_column {
     display: flex;
     flex-direction: column;
-    flex-grow: 1
+    flex: 1;
+
+    .loader {
+      height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .vacancy_column {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex: 1;
+    }
   }
 }

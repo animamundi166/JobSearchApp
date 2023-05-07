@@ -1,9 +1,10 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { BrowserRouter } from 'react-router-dom';
-import AppRoutes from './AppRoutes.jsx';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Main from './pages/Main/Main';
+import Favorites from './pages/Favorites/Favorites';
+import Template from './pages/Template/Template';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -13,12 +14,25 @@ const queryClient = new QueryClient({
   },
 });
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Template />,
+    children: [
+      {
+        index: true,
+        element: <Main />,
+      },
+      {
+        path: '/favorites',
+        element: <Favorites />,
+      },
+    ],
+  },
+]);
+
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
-    </QueryClientProvider>
-  </React.StrictMode>
+  <QueryClientProvider client={queryClient}>
+    <RouterProvider router={router} />
+  </QueryClientProvider>
 );
