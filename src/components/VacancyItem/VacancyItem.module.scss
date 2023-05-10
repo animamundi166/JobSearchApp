@@ -1,16 +1,16 @@
 @import '../../styles/colors';
 
 .card {
-  display: flex;
-  justify-content: space-between;
   background: $white;
   border: 1px solid $grey200;
   border-radius: 12px;
   padding: 24px;
 
-  // &:hover {
-  //   border-color: $blue500Main;
-  // }
+  .profession_star {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   .profession {
     font-family: 'Inter';
@@ -81,29 +81,5 @@
 
   .star_container {
     margin-left: 10px;
-  }
-}
-
-.star {
-  &:hover * {
-    stroke: $blue500Main;
-  }
-
-  &:active * {
-    fill: $blue500Main;
-  }
-}
-
-.star_filled * {
-  fill: $blue500Main;
-  stroke: $blue500Main;
-
-  &:hover {
-    stroke: $blue400;
-    fill: $blue400;
-  }
-
-  &:active {
-    fill: $white;
   }
 }

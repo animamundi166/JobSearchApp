@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { PER_PAGE } from '../constants';
+import { transformResponse } from '../utils/transformResponse';
 
 const http = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
@@ -23,15 +24,12 @@ const api = {
 
   getVacancies: async (page = 0) => {
     const { data } = await http.get(`vacancies/?count=${PER_PAGE}&page=${page}`);
-    return data.objects.map(item => ({
-      id: item.id,
-      profession: item.profession,
-      town: item.town.title,
-      worktime: item.type_of_work.title,
-      minPayment: item.payment_from,
-      maxPayment: item.payment_to,
-      currency: item.currency,
-    }));
+    return data.objects.map(transformResponse);
+  },
+
+  getVacancy: async (id) => {
+    const { data } = await http.get(`vacancies/${id}/`);
+    return transformResponse(data);
   },
 };
 

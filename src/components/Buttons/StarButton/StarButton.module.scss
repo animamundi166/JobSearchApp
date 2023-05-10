@@ -1,0 +1,26 @@
+@import '../../../styles/colors';
+
+
+.star {
+  &:hover * {
+    stroke: $blue500Main;
+  }
+
+  &:active * {
+    fill: $blue500Main;
+  }
+}
+
+.star_filled * {
+  fill: $blue500Main;
+  stroke: $blue500Main;
+
+  &:hover {
+    stroke: $blue400;
+    fill: $blue400;
+  }
+
+  &:active {
+    fill: $white;
+  }
+}

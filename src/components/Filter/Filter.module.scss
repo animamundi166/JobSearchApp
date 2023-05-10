@@ -30,8 +30,15 @@
     align-items: center;
     gap: 4px;
 
-    &:hover * {
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover>span {
       color: $blue400;
+    }
+
+    &:hover * {
       stroke: $blue400;
     }
 

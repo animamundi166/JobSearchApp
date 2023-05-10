@@ -17,9 +17,13 @@ const Main = () => {
     isLoading,
     error,
     data: vacancies,
-  } = useQuery(['Data', activePage], () => api.getVacancies(activePage - 1), {
-    keepPreviousData: true,
-  });
+  } = useQuery(
+    ['vacancies', activePage],
+    () => api.getVacancies(activePage - 1),
+    {
+      keepPreviousData: true,
+    }
+  );
 
   if (error) {
     return <NotFound />;

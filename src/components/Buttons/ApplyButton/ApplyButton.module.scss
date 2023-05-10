@@ -1,26 +1,4 @@
-@import '../../../styles/colors';
-
-
 .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4px 20px;
   width: 275px;
   height: 40px;
-  background: $blue500Main;
-  border-radius: 8px;
-  font-family: 'Inter';
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 21px;
-  color: $white;
-
-  &:hover {
-    background: $blue400;
-  }
-
-  &:active {
-    background: $blue600;
-  }
 }

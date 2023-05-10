@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Main from './pages/Main/Main';
 import Favorites from './pages/Favorites/Favorites';
 import Template from './pages/Template/Template';
+import Vacancy from './pages/Vacancy/Vacancy';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/favorites',
         element: <Favorites />,
+      },
+      {
+        path: '/vacancy/:id',
+        element: <Vacancy />,
       },
     ],
   },

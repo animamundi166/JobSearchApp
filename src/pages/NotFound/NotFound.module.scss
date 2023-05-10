@@ -1,11 +1,10 @@
 @import '../../styles/colors';
 
 .container {
-  height: calc(100vh - 84px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  margin-top: 60px;
 
   .title {
     font-family: 'Inter';
@@ -25,7 +24,11 @@
     line-height: 155%;
     color: $blue600;
     padding: 10px 24px;
-    background: #DEECFF;
+    background: $blue100;
     border-radius: 8px;
+
+    &:hover {
+      background: $blue200;
+    }
   }
 }

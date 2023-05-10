@@ -4,6 +4,7 @@ import Paginate from '../../components/Paginate/Paginate';
 import VacancyItem from '../../components/VacancyItem/VacancyItem';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { PER_PAGE } from '../../constants';
+import NotFound from '../NotFound/NotFound';
 
 const Favorites = () => {
   const [value, setValue] = useLocalStorage();
@@ -12,10 +13,13 @@ const Favorites = () => {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        {value &&
+        {value.length !== 0 ? (
           value
             .slice(PER_PAGE * (activePage - 1), PER_PAGE * activePage)
-            .map(item => <VacancyItem key={item.id} vacancy={item} />)}
+            .map(item => <VacancyItem key={item.id} vacancy={item} />)
+        ) : (
+          <NotFound />
+        )}
       </div>
       {value.length > 4 && (
         <Paginate
