@@ -1,2 +1,9 @@
 export const PER_PAGE = 4;
-export const TOTAL = 500;
+export const MAX_TOTAL = 500;
+
+export const params = {
+  'count': PER_PAGE,
+  'page': 0,
+  'keyword': '',
+  'published': 1,
+}

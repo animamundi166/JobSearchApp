@@ -1,8 +1,8 @@
 import style from './Filter.module.scss';
 import { ReactComponent as ResetIcon } from '../../assets/Reset.svg';
-import { Dropdown } from '../Dropdown/Dropdown';
-import ApplyButton from '../Buttons/ApplyButton/ApplyButton';
-import { Input } from '../Input/Input';
+import { Dropdown } from './Dropdown/Dropdown';
+import ApplyButton from './ApplyButton/ApplyButton';
+import { Input } from './NumberInputs/InputFrom';
 
 const Filter = () => {
   return (

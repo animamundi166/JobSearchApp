@@ -1,6 +1,5 @@
 import axios from 'axios';
-import { PER_PAGE } from '../constants';
-import { transformResponse } from '../utils/transformResponse';
+import { transformCataloguesResponse, transformVacancyResponse } from '../utils/transformResponse';
 
 const http = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
@@ -19,17 +18,17 @@ const api = {
 
   getCatalogues: async () => {
     const response = await http.get('catalogues/');
-    return response.data;
+    return response.data.map(transformCataloguesResponse);
   },
 
-  getVacancies: async (page = 0) => {
-    const { data } = await http.get(`vacancies/?count=${PER_PAGE}&page=${page}`);
-    return data.objects.map(transformResponse);
+  getVacancies: async (params) => {
+    const { data } = await http.get('vacancies/', { params });
+    return { data: data.objects.map(transformVacancyResponse), total: data.total };
   },
 
   getVacancy: async (id) => {
     const { data } = await http.get(`vacancies/${id}/`);
-    return transformResponse(data);
+    return transformVacancyResponse(data);
   },
 };
 

@@ -6,6 +6,8 @@ import Main from './pages/Main/Main';
 import Favorites from './pages/Favorites/Favorites';
 import Template from './pages/Template/Template';
 import Vacancy from './pages/Vacancy/Vacancy';
+import { MantineProvider } from '@mantine/core';
+import { theme } from './styles/theme';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -37,7 +39,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <QueryClientProvider client={queryClient}>
-    <RouterProvider router={router} />
-  </QueryClientProvider>
+  <MantineProvider theme={theme}>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  </MantineProvider>
 );

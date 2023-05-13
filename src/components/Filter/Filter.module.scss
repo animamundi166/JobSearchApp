@@ -15,48 +15,56 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 32px;
-  }
 
-  .filters_caption {
-    font-family: 'Inter';
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 20px;
-    color: $black;
-  }
-
-  .reset_item {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:hover>span {
-      color: $blue400;
-    }
-
-    &:hover * {
-      stroke: $blue400;
-    }
-
-    .reset_caption {
+    .filters_caption {
       font-family: 'Inter';
-      font-weight: 500;
-      font-size: 14px;
+      font-weight: 700;
+      font-size: 20px;
       line-height: 20px;
-      color: $grey500;
+      color: $black;
+    }
+
+    .reset_item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+
+      &:hover>span {
+        color: $blue400;
+      }
+
+      &:hover * {
+        stroke: $blue400;
+      }
+
+      &:active>span {
+        color: $blue500Main;
+      }
+
+      &:active * {
+        stroke: $blue500Main;
+      }
+
+      .reset_caption {
+        font-family: 'Inter';
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        color: $grey500;
+      }
     }
   }
-}
 
-.title {
-  font-family: 'Inter';
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
-  color: $black;
-  padding-bottom: 8px;
+  .title {
+    padding-bottom: 20px;
+
+    span {
+      font-family: 'Inter';
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      color: $black;
+    }
+  }
 }

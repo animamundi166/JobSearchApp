@@ -6,7 +6,7 @@ import api from '../../API/api';
 import { useParams } from 'react-router-dom';
 import { Loader } from '@mantine/core';
 import parse from 'html-react-parser';
-import StarButton from '../../components/Buttons/StarButton/StarButton';
+import StarButton from '../../components/VacancyItem/StarButton/StarButton';
 
 const Vacancy = () => {
   const { id } = useParams();
@@ -14,8 +14,6 @@ const Vacancy = () => {
   const { isLoading, data: vacancy } = useQuery(['vacancy', id], () =>
     api.getVacancy(id)
   );
-
-  console.log(vacancy);
 
   return (
     <div className={styles.container}>

@@ -2,7 +2,7 @@ import styles from './VacancyItem.module.scss';
 import { ReactComponent as Location } from '../../assets/Location.svg';
 import { formatSalary } from '../../utils/formatSalary';
 import { Link } from 'react-router-dom';
-import StarButton from '../Buttons/StarButton/StarButton';
+import StarButton from './StarButton/StarButton';
 
 const VacancyItem = ({ vacancy }) => {
   return (

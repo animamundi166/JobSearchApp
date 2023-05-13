@@ -1,4 +1,4 @@
-export const transformResponse = (item) => {
+export const transformVacancyResponse = (item) => {
   return {
     id: item.id,
     profession: item.profession,
@@ -8,5 +8,12 @@ export const transformResponse = (item) => {
     maxPayment: item.payment_to,
     currency: item.currency,
     description: item.vacancyRichText,
+  }
+}
+
+export const transformCataloguesResponse = (item) => {
+  return {
+    value: item.key,
+    label: item.title,
   }
 }

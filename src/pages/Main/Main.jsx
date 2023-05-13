@@ -2,30 +2,26 @@ import styles from './Main.module.scss';
 import Filter from '../../components/Filter/Filter';
 import SearchPanel from '../../components/SearchPanel/SearchPanel';
 import NotFound from '../NotFound/NotFound';
-import VacancyItem from '../../components/VacancyItem/VacancyItem';
 import Paginate from '../../components/Paginate/Paginate';
 import { useState } from 'react';
-import { TOTAL } from '../../constants';
-import { useQuery } from '@tanstack/react-query';
-import api from '../../API/api';
+import { MAX_TOTAL, params } from '../../constants';
 import { Loader } from '@mantine/core';
+import { useGetVacancies } from '../../hooks/useGetVacancies';
+import VacanciesList from '../../components/VacanciesList/VacanciesList';
 
 const Main = () => {
   const [activePage, setPage] = useState(1);
+  params.page = activePage - 1;
 
-  const {
-    isLoading,
-    error,
-    data: vacancies,
-  } = useQuery(
-    ['vacancies', activePage],
-    () => api.getVacancies(activePage - 1),
-    {
-      keepPreviousData: true,
-    }
+  const { isLoading, isSuccess, error, vacancies, refetch } = useGetVacancies(
+    activePage,
+    params
   );
 
-  if (error) {
+  const total =
+    isSuccess && (vacancies.total < MAX_TOTAL ? vacancies.total : MAX_TOTAL);
+
+  if (error || (isSuccess && vacancies.total === 0)) {
     return <NotFound />;
   }
 
@@ -33,23 +29,21 @@ const Main = () => {
     <div className={styles.card}>
       <Filter />
       <div className={styles.right_column}>
-        <SearchPanel />
+        <SearchPanel refetch={refetch} setPage={setPage} />
         {isLoading ? (
           <div className={styles.loader}>
-            <Loader variant='dots' />
+            <Loader />
           </div>
         ) : (
           <div className={styles.vacancy_column}>
-            {vacancies &&
-              vacancies.map(item => (
-                <VacancyItem key={item.id} vacancy={item} />
-              ))}
+            {isSuccess && <VacanciesList vacancies={vacancies.data} />}
           </div>
         )}
 
-        <Paginate activePage={activePage} setPage={setPage} total={TOTAL} />
+        <Paginate activePage={activePage} setPage={setPage} total={total} />
       </div>
     </div>
   );
 };
+
 export default Main;

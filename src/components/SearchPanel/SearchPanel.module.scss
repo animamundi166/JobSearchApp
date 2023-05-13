@@ -14,7 +14,6 @@ label {
 
   &:focus-within {
     border-color: $blue500Main;
-    transition: border-color 0.1s ease-in-out
   }
 
   .search {
@@ -36,6 +35,30 @@ label {
 
     &::placeholder {
       color: $grey500;
+    }
+  }
+
+  .button {
+    width: 83px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 20px;
+    background: $blue500Main;
+    border-radius: 8px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: $white;
+
+    &:hover {
+      background: $blue400;
+    }
+
+    &:active {
+      background: $blue600;
     }
   }
 }

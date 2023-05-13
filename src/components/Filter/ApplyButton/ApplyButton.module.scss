@@ -1,7 +1,8 @@
-@import '../../styles/colors';
+@import '../../../styles/colors';
 
-
-.common_button {
+.button {
+  width: 275px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
