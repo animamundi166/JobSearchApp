@@ -6,4 +6,7 @@ export const params = {
   'page': 0,
   'keyword': '',
   'published': 1,
+  'catalogues': '',
+  'payment_from': '',
+  'payment_to': '',
 }

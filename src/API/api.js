@@ -17,8 +17,8 @@ const api = {
   },
 
   getCatalogues: async () => {
-    const response = await http.get('catalogues/');
-    return response.data.map(transformCataloguesResponse);
+    const { data } = await http.get('catalogues/');
+    return data.map(transformCataloguesResponse);
   },
 
   getVacancies: async (params) => {

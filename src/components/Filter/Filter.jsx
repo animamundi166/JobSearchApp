@@ -1,29 +1,65 @@
 import style from './Filter.module.scss';
 import { ReactComponent as ResetIcon } from '../../assets/Reset.svg';
 import { Dropdown } from './Dropdown/Dropdown';
-import ApplyButton from './ApplyButton/ApplyButton';
-import { Input } from './NumberInputs/InputFrom';
+import { InputFrom } from './NumberInputs/InputFrom';
+import { params } from '../../constants';
+import { InputTo } from './NumberInputs/InputTo';
+import { useState } from 'react';
 
-const Filter = () => {
+const Filter = ({ refetch, setPage }) => {
+  const [catalogValue, setCatalogValue] = useState(null);
+  const [inputFromValue, setInputFromValue] = useState();
+  const [inputToValue, setInputToValue] = useState();
+
+  const resetParams = () => {
+    params.page = 0;
+    params.keyword = '';
+    params.catalogues = '';
+    params.payment_from = 0;
+    params.payment_to = 0;
+    setCatalogValue(null);
+    setInputFromValue('');
+    setInputToValue('');
+  };
+
+  const applyParams = () => {
+    params.page = 0;
+    refetch();
+    setPage(1);
+  };
+
   return (
     <div className={style.main}>
       <div className={style.filters}>
         <span className={style.filters_caption}>Фильтры</span>
         <p className={style.reset_item}>
-          <span className={style.reset_caption}>Сбросить все</span>
+          <span className={style.reset_caption} onClick={resetParams}>
+            Сбросить все
+          </span>
           <ResetIcon />
         </p>
       </div>
       <div className={style.title}>
         <span>Отрасль</span>
-        <Dropdown />
+        <Dropdown
+          catalogValue={catalogValue}
+          setCatalogValue={setCatalogValue}
+        />
       </div>
       <div className={style.title}>
         <span>Оклад</span>
-        <Input />
-        <Input />
+        <InputFrom
+          inputFromValue={inputFromValue}
+          setInputFromValue={setInputFromValue}
+        />
+        <InputTo
+          inputToValue={inputToValue}
+          setInputToValue={setInputToValue}
+        />
       </div>
-      <ApplyButton />
+      <button className={style.button} onClick={applyParams}>
+        Применить
+      </button>
     </div>
   );
 };

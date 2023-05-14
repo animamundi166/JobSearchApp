@@ -10,6 +10,7 @@ import { useGetVacancies } from '../../hooks/useGetVacancies';
 import VacanciesList from '../../components/VacanciesList/VacanciesList';
 
 const Main = () => {
+  console.log('render');
   const [activePage, setPage] = useState(1);
   params.page = activePage - 1;
 
@@ -27,7 +28,7 @@ const Main = () => {
 
   return (
     <div className={styles.card}>
-      <Filter />
+      <Filter refetch={refetch} setPage={setPage} />
       <div className={styles.right_column}>
         <SearchPanel refetch={refetch} setPage={setPage} />
         {isLoading ? (

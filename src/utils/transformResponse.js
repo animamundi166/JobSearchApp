@@ -13,7 +13,7 @@ export const transformVacancyResponse = (item) => {
 
 export const transformCataloguesResponse = (item) => {
   return {
-    value: item.key,
-    label: item.title,
+    value: String(item.key),
+    label: item.title_trimmed,
   }
 }

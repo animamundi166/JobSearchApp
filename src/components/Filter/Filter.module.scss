@@ -17,7 +17,6 @@
     margin-bottom: 32px;
 
     .filters_caption {
-      font-family: 'Inter';
       font-weight: 700;
       font-size: 20px;
       line-height: 20px;
@@ -47,7 +46,6 @@
       }
 
       .reset_caption {
-        font-family: 'Inter';
         font-weight: 500;
         font-size: 14px;
         line-height: 20px;
@@ -65,6 +63,29 @@
       font-size: 16px;
       line-height: 19px;
       color: $black;
+    }
+  }
+
+  .button {
+    width: 275px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 20px;
+    background: $blue500Main;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: $white;
+
+    &:hover {
+      background: $blue400;
+    }
+
+    &:active {
+      background: $blue600;
     }
   }
 }

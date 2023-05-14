@@ -9,7 +9,8 @@ export const useGetVacancies = (activePage, params) => {
     error,
     refetch,
     data: vacancies,
-  } = useQuery(['vacancies', activePage], () => api.getVacancies(params), {
+  } = useQuery({
+    queryKey: ['vacancies', activePage], queryFn: () => api.getVacancies(params),
     keepPreviousData: true,
     enabled: Boolean(activePage),
   });

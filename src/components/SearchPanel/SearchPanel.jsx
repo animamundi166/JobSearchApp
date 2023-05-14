@@ -10,12 +10,11 @@ const SearchPanel = ({ refetch, setPage }) => {
     params.keyword = searchTerm;
     params.page = 0;
     refetch();
-    setSearchTerm('');
     setPage(1);
   };
 
   const handleKeyPress = e => {
-    if (e.key === 'Enter' && searchTerm !== '') {
+    if (e.key === 'Enter') {
       handleButtonClick();
     }
   };

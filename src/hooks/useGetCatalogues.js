@@ -6,7 +6,9 @@ export const useGetCatalogues = () => {
   const {
     data,
     isSuccess
-  } = useQuery(['dropdown'], () => api.getCatalogues());
+  } = useQuery({
+    queryKey: ['dropdown'], queryFn: () => api.getCatalogues(),
+  });
 
   return { data, isSuccess };
 }

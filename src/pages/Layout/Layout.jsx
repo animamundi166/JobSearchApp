@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
 import Header from '../../components/Header/Header';
-import styles from './Template.module.scss';
+import styles from './Layout.module.scss';
 
-const Template = () => (
+const Layout = () => (
   <>
     <Header />
     <main className={styles.container}>
@@ -11,4 +11,4 @@ const Template = () => (
   </>
 );
 
-export default Template;
+export default Layout;

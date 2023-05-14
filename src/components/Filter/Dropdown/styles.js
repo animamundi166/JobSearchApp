@@ -8,7 +8,7 @@ const styles = {
 
     '&[data-selected]': {
       '&, &:hover': {
-        backgroundColor: '#5E96FC;',
+        backgroundColor: '#5E96FC',
         color: '#FFFFFF',
       },
     },

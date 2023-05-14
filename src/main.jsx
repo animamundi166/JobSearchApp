@@ -4,10 +4,11 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Main from './pages/Main/Main';
 import Favorites from './pages/Favorites/Favorites';
-import Template from './pages/Template/Template';
+import Layout from './pages/Layout/Layout';
 import Vacancy from './pages/Vacancy/Vacancy';
 import { MantineProvider } from '@mantine/core';
 import { theme } from './styles/theme';
+import NotFound from './pages/NotFound/NotFound';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,7 +21,7 @@ const queryClient = new QueryClient({
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Template />,
+    element: <Layout />,
     children: [
       {
         index: true,
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/vacancy/:id',
         element: <Vacancy />,
+      },
+      {
+        path: '*',
+        element: <NotFound />,
       },
     ],
   },

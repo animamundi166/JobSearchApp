@@ -1,17 +1,16 @@
 const styles = {
-  rightSection: { pointerEvents: 'none' },
   input: {
     fontSize: 14,
   },
-  item: {
-    fontSize: 14,
+  control: {
+    border: 'none', color: '#ACADB9',
 
-    '&[data-selected]': {
-      '&, &:hover': {
-        backgroundColor: '#5E96FC;',
-        color: '#FFFFFF',
-      },
+    '&:hover': {
+      color: '#92C1FF',
     },
+    '&:active': {
+      color: '#5E96FC',
+    }
   },
 };
 
