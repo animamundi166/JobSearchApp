@@ -2,7 +2,7 @@ import style from './Filter.module.scss';
 import { ReactComponent as ResetIcon } from '../../assets/Reset.svg';
 import { Dropdown } from './Dropdown/Dropdown';
 import { InputFrom } from './NumberInputs/InputFrom';
-import { params } from '../../constants';
+import { initialParams, params } from '../../constants';
 import { InputTo } from './NumberInputs/InputTo';
 import { useState } from 'react';
 
@@ -12,11 +12,7 @@ const Filter = ({ refetch, setPage }) => {
   const [inputToValue, setInputToValue] = useState();
 
   const resetParams = () => {
-    params.page = 0;
-    params.keyword = '';
-    params.catalogues = '';
-    params.payment_from = 0;
-    params.payment_to = 0;
+    Object.assign(params, initialParams);
     setCatalogValue(null);
     setInputFromValue('');
     setInputToValue('');

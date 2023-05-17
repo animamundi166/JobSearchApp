@@ -2,14 +2,17 @@
 
 .card {
   display: flex;
+  justify-content: center;
   gap: 28px;
-  max-width: 1200px;
+  // max-width: 1200px;
   margin: 0 auto;
 
   .right_column {
     display: flex;
     flex-direction: column;
     flex: 1;
+    max-width: 773px;
+
 
     .loader {
       height: 50%;

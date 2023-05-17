@@ -1,5 +1,4 @@
 import { Pagination } from '@mantine/core';
-import styles from './styles';
 import { PER_PAGE } from '../../constants';
 
 const Paginate = ({ activePage, setPage, total }) => {
@@ -11,7 +10,11 @@ const Paginate = ({ activePage, setPage, total }) => {
       position='center'
       radius='sm'
       mt={40}
-      styles={styles}
+      styles={{
+        control: {
+          '&[data-active]': { background: '#5E96FC' },
+        },
+      }}
     />
   );
 };

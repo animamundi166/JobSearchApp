@@ -1,0 +1,38 @@
+@import '../../../styles/colors';
+
+.input_icons {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  .input_icon_down {
+    transform: rotate(180deg);
+
+    &_disabled {
+      transform: rotate(180deg);
+      pointer-events: none;
+      stroke: $grey300;
+    }
+
+    &:hover {
+      stroke: $blue400;
+    }
+
+    &:active {
+      stroke: $blue500Main;
+    }
+  }
+
+  .input_icon:hover {
+    stroke: $blue400;
+  }
+
+  .input_icon:active {
+    stroke: $blue500Main;
+  }
+
+  // .input_icon_down_disabled {
+  //   pointer-events: none;
+  //   stroke: $grey300;
+  // }
+}

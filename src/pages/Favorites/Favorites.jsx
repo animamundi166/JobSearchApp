@@ -7,7 +7,7 @@ import { PER_PAGE } from '../../constants';
 import NotFound from '../NotFound/NotFound';
 
 const Favorites = () => {
-  const [value, setValue] = useLocalStorage();
+  const [value] = useLocalStorage();
   const [activePage, setPage] = useState(1);
 
   return (

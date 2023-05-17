@@ -5,10 +5,10 @@ export const useGetCatalogues = () => {
 
   const {
     data,
-    isSuccess
+    isLoading
   } = useQuery({
     queryKey: ['dropdown'], queryFn: () => api.getCatalogues(),
   });
 
-  return { data, isSuccess };
+  return { data, isLoading };
 }
