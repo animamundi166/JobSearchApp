@@ -3,12 +3,7 @@ import { useLocalStorage } from './useLocalStorage';
 
 export const useIsFavorited = (vacancy) => {
 
-  // const localStorageItems = JSON.parse(localStorage.getItem('favorited')) || [];
-  // const setLocalStorage = (value) => {
-  //   localStorage.setItem('favorited', JSON.stringify(value));
-  // }
-
-  const [localStorageItems, setLocalStorage] = useLocalStorage();
+  const [localStorageItems, setLocalStorage] = useLocalStorage('favorited');
 
   const isIncludesInLS = localStorageItems.some(items => items.id === vacancy.id);
 

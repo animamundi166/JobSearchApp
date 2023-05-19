@@ -1,35 +1,48 @@
 import axios from 'axios';
-import { transformCataloguesResponse, transformVacancyResponse } from '../utils/transformResponse';
+import { baseHeaders } from '../constants';
+import { getToken } from '../services/getToken';
 
-const http = axios.create({
+export const axiosClassic = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
-  headers: {
-    "x-secret-key": import.meta.env.VITE_X_SECRET_KEY,
-    "X-Api-App-Id": import.meta.env.VITE_X_API_APP_ID,
-    // Authorization: `Bearer ${localStorage.getItem('token')}`,
-  }
+  headers: baseHeaders,
 });
 
-const api = {
-  getAccessToken: async () => {
-    const response = await http.get(`oauth2/password/?login=${import.meta.env.VITE_LOGIN}&password=${import.meta.env.VITE_PASSWORD}&client_id=${import.meta.env.VITE_CLIENT_ID}&hr=${import.meta.env.VITE_HR}&client_secret=${import.meta.env.VITE_CLIENT_SECRET}`);
-    return response.data;
-  },
+export const instance = axios.create({
+  baseURL: import.meta.env.VITE_BASE_URL,
+  headers: baseHeaders,
+});
 
-  getCatalogues: async () => {
-    const { data } = await http.get('catalogues/');
-    return data.map(transformCataloguesResponse);
-  },
+instance.interceptors.request.use(
+  (config) => {
+    const token = JSON.parse(localStorage.getItem('token'));
+    if (token) {
+      config.headers.Authorization = `Bearer ${token.access_token}`;
+    }
+    return config;
+  }
+);
 
-  getVacancies: async (params) => {
-    const { data } = await http.get('vacancies/', { params });
-    return { data: data.objects.map(transformVacancyResponse), total: data.total };
-  },
+instance.interceptors.response.use((config) => {
+  return config;
+}, async (error) => {
+  const originalConfig = error.config;
+  if (error.response.status === 401 && !originalConfig._retry) {
+    originalConfig._retry = true;
+    try {
+      await getToken();
+      return instance.request(originalConfig);
+    } catch (e) {
+      if (e.response && e.response.data) {
+        return Promise.reject(e.response.data);
+      }
+      return Promise.reject(e);
+    }
+  }
 
-  getVacancy: async (id) => {
-    const { data } = await http.get(`vacancies/${id}/`);
-    return transformVacancyResponse(data);
-  },
-};
+  if (error.response.status === 403 && error.response.data) {
+    return Promise.reject(error.response.data);
+  }
 
-export default api;
+  return Promise.reject(error);
+}
+)

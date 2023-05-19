@@ -1,11 +1,16 @@
 @import '../../styles/colors';
 
 header {
-  display: flex;
-  align-items: center;
-  height: 84px;
-  padding: 10px 162px;
   background-color: $white;
+
+  .container {
+    height: 84px;
+    padding: 0 25px;
+    width: 1116px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+  }
 
   .logo_section {
     display: flex;

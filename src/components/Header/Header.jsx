@@ -6,8 +6,8 @@ const setActive = ({ isActive }) => (isActive ? styles.active : '');
 
 const Header = () => {
   return (
-    <>
-      <header>
+    <header>
+      <div className={styles.container}>
         <h2 className={styles.logo_section}>
           <Logo />
           <span className={styles.logo_text}>Jobored</span>
@@ -20,8 +20,8 @@ const Header = () => {
             Избранное
           </NavLink>
         </nav>
-      </header>
-    </>
+      </div>
+    </header>
   );
 };
 

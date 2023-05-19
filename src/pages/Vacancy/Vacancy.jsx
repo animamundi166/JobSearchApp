@@ -2,24 +2,24 @@ import styles from './Vacancy.module.scss';
 import { formatSalary } from '../../utils/formatSalary';
 import { ReactComponent as Location } from '../../assets/Location.svg';
 import { useQuery } from '@tanstack/react-query';
-import api from '../../API/api';
 import { useParams } from 'react-router-dom';
 import { Loader } from '@mantine/core';
 import parse from 'html-react-parser';
 import StarButton from '../../components/VacancyItem/StarButton/StarButton';
+import { getVacancy } from '../../services/getVacancy';
 
 const Vacancy = () => {
   const { id } = useParams();
 
   const { isLoading, data: vacancy } = useQuery(['vacancy', id], () =>
-    api.getVacancy(id)
+    getVacancy(id)
   );
 
   return (
     <div className={styles.container}>
       {isLoading ? (
         <div className={styles.loader}>
-          <Loader variant='dots' size='xl' />
+          <Loader size='xl' />
         </div>
       ) : (
         <>

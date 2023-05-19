@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import api from '../API/api';
+import { getVacancies } from '../services/getVacancies';
 
 export const useGetVacancies = (activePage, params) => {
 
@@ -10,7 +10,7 @@ export const useGetVacancies = (activePage, params) => {
     refetch,
     data: vacancies,
   } = useQuery({
-    queryKey: ['vacancies', activePage], queryFn: () => api.getVacancies(params),
+    queryKey: ['vacancies', activePage], queryFn: () => getVacancies(params),
     keepPreviousData: true,
     enabled: Boolean(activePage),
   });

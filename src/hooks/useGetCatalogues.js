@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import api from '../API/api';
+import { getCatalogues } from '../services/getCatalogues';
 
 export const useGetCatalogues = () => {
 
@@ -7,7 +7,7 @@ export const useGetCatalogues = () => {
     data,
     isLoading
   } = useQuery({
-    queryKey: ['dropdown'], queryFn: () => api.getCatalogues(),
+    queryKey: ['dropdown'], queryFn: () => getCatalogues(),
   });
 
   return { data, isLoading };
