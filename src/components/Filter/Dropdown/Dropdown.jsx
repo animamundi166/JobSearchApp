@@ -12,6 +12,7 @@ export function Dropdown({ catalogValue, setCatalogValue }) {
 
   return (
     <Select
+      data-elem='industry-select'
       value={catalogValue}
       onChange={setCatalogValue}
       onDropdownClose={() => setIsOpened(false)}

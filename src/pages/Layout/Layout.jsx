@@ -7,7 +7,7 @@ import { getToken } from '../../services/getToken';
 const Layout = () => {
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem('token'));
-    if (!token || token.ttl < Date.now() / 1000) {
+    if (!token || token.ttl * 1000 < Date.now()) {
       getToken();
     }
   }, []);

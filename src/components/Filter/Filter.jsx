@@ -24,6 +24,8 @@ const Filter = ({ refetch, setPage }) => {
     setPage(1);
   };
 
+  console.log(params);
+
   return (
     <div className={style.main}>
       <div className={style.filters}>
@@ -45,15 +47,22 @@ const Filter = ({ refetch, setPage }) => {
       <div className={style.title}>
         <span>Оклад</span>
         <InputFrom
+          data-elem='salary-from-input'
           inputFromValue={inputFromValue}
           setInputFromValue={setInputFromValue}
         />
         <InputTo
+          data-elem='salary-to-input'
           inputToValue={inputToValue}
           setInputToValue={setInputToValue}
         />
       </div>
-      <button className={style.button} onClick={applyParams}>
+
+      <button
+        data-elem='search-button'
+        className={style.button}
+        onClick={applyParams}
+      >
         Применить
       </button>
     </div>

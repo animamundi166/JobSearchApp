@@ -7,10 +7,10 @@ export const baseHeaders = {
 }
 
 export const initialParams = {
-  'published': 1,
-  'count': PER_PAGE,
+  // 'published': 1,
+  // 'count': PER_PAGE,
+  // 'keyword': '',
   'page': 0,
-  'keyword': '',
   'catalogues': '',
   'payment_from': '',
   'payment_to': '',

@@ -24,6 +24,7 @@ const SearchPanel = ({ refetch, setPage }) => {
       <div className={style.search}>
         <SearchIcon />
         <input
+          data-elem='search-input'
           type='text'
           placeholder='Введите название вакансии'
           value={searchTerm}
@@ -32,7 +33,11 @@ const SearchPanel = ({ refetch, setPage }) => {
         />
       </div>
       <div>
-        <button className={style.button} onClick={handleButtonClick}>
+        <button
+          data-elem='search-button'
+          className={style.button}
+          onClick={handleButtonClick}
+        >
           Поиск
         </button>
       </div>

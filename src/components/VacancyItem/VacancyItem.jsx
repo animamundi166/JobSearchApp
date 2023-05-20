@@ -6,7 +6,7 @@ import StarButton from './StarButton/StarButton';
 
 const VacancyItem = ({ vacancy }) => {
   return (
-    <div className={styles.card}>
+    <div data-elem={`vacancy-${vacancy.id}`} className={styles.card}>
       <div className={styles.profession_star}>
         <p className={styles.profession}>
           <Link
@@ -18,7 +18,10 @@ const VacancyItem = ({ vacancy }) => {
           </Link>
         </p>
         <div className={styles.star_container}>
-          <StarButton vacancy={vacancy} />
+          <StarButton
+            dataElem={`vacancy-${vacancy.id}-shortlist-button`}
+            vacancy={vacancy}
+          />
         </div>
       </div>
 
