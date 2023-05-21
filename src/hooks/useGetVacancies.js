@@ -6,6 +6,7 @@ export const useGetVacancies = (activePage, params) => {
   const {
     isLoading,
     isSuccess,
+    isFetching,
     error,
     refetch,
     data: vacancies,
@@ -15,5 +16,5 @@ export const useGetVacancies = (activePage, params) => {
     enabled: Boolean(activePage),
   });
 
-  return { isLoading, isSuccess, error, vacancies, refetch };
+  return { isLoading, isSuccess, error, vacancies, refetch, isFetching };
 }

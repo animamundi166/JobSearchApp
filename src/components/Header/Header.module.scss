@@ -7,14 +7,8 @@ header {
   align-items: center;
   height: 84px;
 
-  .search_icon {
-    width: 23px;
-    height: 23px;
-  }
-
-  .favorite_icon {
-    width: 25px;
-    height: 25px;
+  @media (max-width: 500px) {
+    height: 70px;
   }
 
   .container {
@@ -56,16 +50,14 @@ header {
     left: calc(50% - 275px/2 + 0.5px);
 
     a {
-      font-family: 'Inter';
       font-weight: 400;
       font-size: 16px;
-      line-height: 20px;
       color: $black;
       padding: 5px;
 
 
       svg {
-        width: 25px;
+        height: 25px;
       }
 
       &:hover {

@@ -2,7 +2,7 @@ import styles from './Main.module.scss';
 import Filter from '../../components/Filter/Filter';
 import SearchPanel from '../../components/SearchPanel/SearchPanel';
 import Paginate from '../../components/Paginate/Paginate';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { MAX_TOTAL_ITEMS, params } from '../../constants';
 import { Loader } from '@mantine/core';
 import { useGetVacancies } from '../../hooks/useGetVacancies';
@@ -10,19 +10,18 @@ import VacanciesList from '../../components/VacanciesList/VacanciesList';
 import { useNavigate } from 'react-router-dom';
 import DrawerWrapper from '../../components/Drawer/Drawer';
 import { useMediaQuery } from '@mantine/hooks';
+import { ParamsContext } from '../../providers/Params/context';
 
 const Main = () => {
+  const { activePage, setPage } = useContext(ParamsContext);
   const matches = useMediaQuery('(max-width: 1024px)');
 
   const navigate = useNavigate();
 
-  const [activePage, setPage] = useState(1);
   params.page = activePage - 1;
 
-  const { isLoading, isSuccess, error, vacancies, refetch } = useGetVacancies(
-    activePage,
-    params
-  );
+  const { isLoading, isSuccess, error, vacancies, refetch, isFetching } =
+    useGetVacancies(activePage, params);
 
   useEffect(() => {
     window.scrollTo({
@@ -35,22 +34,24 @@ const Main = () => {
     isSuccess &&
     (vacancies.total < MAX_TOTAL_ITEMS ? vacancies.total : MAX_TOTAL_ITEMS);
 
-  if (error || (vacancies && total === 0)) {
-    navigate('/404');
-  }
+  useEffect(() => {
+    if (error || (!isFetching && total === 0)) {
+      navigate('/404');
+    }
+  }, [error, isFetching, navigate, total]);
 
   return (
     <div className={styles.card}>
       {matches ? (
         <DrawerWrapper>
-          <Filter refetch={refetch} setPage={setPage} />
+          <Filter refetch={refetch} />
         </DrawerWrapper>
       ) : (
-        <Filter refetch={refetch} setPage={setPage} />
+        <Filter refetch={refetch} />
       )}
 
       <div className={styles.right_column}>
-        <SearchPanel refetch={refetch} setPage={setPage} />
+        <SearchPanel refetch={refetch} />
         {isLoading ? (
           <div className={styles.loader}>
             <Loader />

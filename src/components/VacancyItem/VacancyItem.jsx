@@ -17,18 +17,17 @@ const VacancyItem = ({ vacancy }) => {
             {vacancy.profession}
           </Link>
         </p>
-        <div className={styles.star_container}>
-          <StarButton
-            dataElem={`vacancy-${vacancy.id}-shortlist-button`}
-            vacancy={vacancy}
-          />
-        </div>
+        <StarButton
+          dataElem={`vacancy-${vacancy.id}-shortlist-button`}
+          vacancy={vacancy}
+        />
       </div>
 
       <div className={styles.salary_and_type}>
         <span className={styles.salary}>
           з/п{' '}
           {formatSalary(
+            vacancy.agreement,
             vacancy.minPayment,
             vacancy.maxPayment,
             vacancy.currency

@@ -3,9 +3,11 @@ import { ReactComponent as DropdownIcon } from '../../../assets/Dropdown.svg';
 import styles from './Dropdown.module.scss';
 import { useGetCatalogues } from '../../../hooks/useGetCatalogues';
 import { params } from '../../../constants';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { ParamsContext } from '../../../providers/Params/context';
 
-export function Dropdown({ catalogValue, setCatalogValue }) {
+export function Dropdown() {
+  const { catalogValue, setCatalogValue } = useContext(ParamsContext);
   const [isOpened, setIsOpened] = useState(false);
   const { data, isLoading } = useGetCatalogues();
   params.catalogues = catalogValue;

@@ -1,31 +1,33 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import style from './Filter.module.scss';
 import { ReactComponent as ResetIcon } from '../../assets/Reset.svg';
 import { Dropdown } from './Dropdown/Dropdown';
 import { InputFrom } from './NumberInputs/InputFrom';
-import { initialParams, params } from '../../constants';
 import { InputTo } from './NumberInputs/InputTo';
-import { DrawerContext } from '../../providers/context';
+import { DrawerContext } from '../../providers/Drawer/context';
+import { ParamsContext } from '../../providers/Params/context';
+import { params } from '../../constants';
 
-const Filter = ({ refetch, setPage }) => {
+const Filter = ({ refetch }) => {
   const { toggle } = useContext(DrawerContext);
-
-  const [catalogValue, setCatalogValue] = useState(null);
-  const [inputFromValue, setInputFromValue] = useState();
-  const [inputToValue, setInputToValue] = useState();
-
-  const resetParams = () => {
-    Object.assign(params, initialParams);
-    setCatalogValue(null);
-    setInputFromValue('');
-    setInputToValue('');
-  };
+  const { resetParams, setPage, inputFromValue, inputToValue } =
+    useContext(ParamsContext);
 
   const applyParams = () => {
+    addNoAgreement;
     params.page = 0;
     refetch();
     setPage(1);
     toggle();
+  };
+
+  const addNoAgreement =
+    inputFromValue > 0 || inputToValue > 0
+      ? (params.no_agreement = 1)
+      : (params.no_agreement = 0);
+
+  const applyAndResetParams = () => {
+    resetParams(), applyParams();
   };
 
   return (
@@ -33,31 +35,22 @@ const Filter = ({ refetch, setPage }) => {
       <div className={style.filters}>
         <span className={style.filters_caption}>Фильтры</span>
         <p className={style.reset_item}>
-          <span className={style.reset_caption} onClick={resetParams}>
+          <span className={style.reset_caption} onClick={applyAndResetParams}>
             Сбросить все
           </span>
           <ResetIcon />
         </p>
       </div>
+
       <div className={style.title}>
         <span>Отрасль</span>
-        <Dropdown
-          catalogValue={catalogValue}
-          setCatalogValue={setCatalogValue}
-        />
+        <Dropdown />
       </div>
+
       <div className={style.title}>
         <span>Оклад</span>
-        <InputFrom
-          data-elem='salary-from-input'
-          inputFromValue={inputFromValue}
-          setInputFromValue={setInputFromValue}
-        />
-        <InputTo
-          data-elem='salary-to-input'
-          inputToValue={inputToValue}
-          setInputToValue={setInputToValue}
-        />
+        <InputFrom data-elem='salary-from-input' />
+        <InputTo data-elem='salary-to-input' />
       </div>
 
       <button

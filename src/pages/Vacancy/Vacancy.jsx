@@ -26,15 +26,14 @@ const Vacancy = () => {
           <div className={styles.card}>
             <div className={styles.profession_star}>
               <p className={styles.profession}>{vacancy.profession}</p>
-              <div className={styles.star_container}>
-                <StarButton vacancy={vacancy} />
-              </div>
+              <StarButton vacancy={vacancy} />
             </div>
 
             <div className={styles.salary_and_type}>
               <span className={styles.salary}>
                 з/п{' '}
                 {formatSalary(
+                  vacancy.agreement,
                   vacancy.minPayment,
                   vacancy.maxPayment,
                   vacancy.currency

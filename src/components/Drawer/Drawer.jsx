@@ -1,6 +1,6 @@
 import { Drawer } from '@mantine/core';
 import { useContext } from 'react';
-import { DrawerContext } from '../../providers/context';
+import { DrawerContext } from '../../providers/Drawer/context';
 
 const DrawerWrapper = ({ children }) => {
   const { opened, close } = useContext(DrawerContext);

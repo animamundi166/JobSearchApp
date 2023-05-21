@@ -1,10 +1,10 @@
-import { NumberInput } from '@mantine/core';
-import styles from './Input.module.scss';
-import { ReactComponent as NumberInputIcon } from '../../../assets/NumberInput.svg';
 import Input from './Input';
 import { params } from '../../../constants';
+import { useContext } from 'react';
+import { ParamsContext } from '../../../providers/Params/context';
 
-export function InputTo({ inputToValue, setInputToValue }) {
+export function InputTo() {
+  const { inputToValue, setInputToValue } = useContext(ParamsContext);
   params.payment_to = inputToValue;
 
   return (

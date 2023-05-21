@@ -10,7 +10,8 @@ import { MantineProvider } from '@mantine/core';
 import { theme } from './styles/theme';
 import NotFound from './pages/NotFound/NotFound';
 import { StrictMode } from 'react';
-import DrawerProvider from './providers/DrawerProvider';
+import DrawerProvider from './providers/Drawer/DrawerProvider';
+import ParamsProvider from './providers/Params/ParamsProvider';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -52,7 +53,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <MantineProvider theme={theme}>
       <QueryClientProvider client={queryClient}>
         <DrawerProvider>
-          <RouterProvider router={router} />
+          <ParamsProvider>
+            <RouterProvider router={router} />
+          </ParamsProvider>
         </DrawerProvider>
       </QueryClientProvider>
     </MantineProvider>

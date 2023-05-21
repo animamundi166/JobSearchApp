@@ -3,7 +3,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 773px;
+  max-width: 773px;
   margin: 0 auto;
   gap: 20px;
 
@@ -24,13 +24,19 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 24px;
-    }
 
-    .profession {
-      font-weight: 700;
-      font-size: 28px;
-      line-height: 34px;
+      svg {
+        margin-left: 10px;
+      }
+
+      .profession {
+        font-weight: 700;
+        font-size: 28px;
+
+        @media (max-width: 600px) {
+          font-size: 24px;
+        }
+      }
     }
 
     .salary_and_type {
@@ -38,11 +44,20 @@
       align-items: center;
       padding: 20px 0;
 
+      @media (max-width: 700px) {
+        flex-direction: column;
+        align-items: start;
+        gap: 2px;
+      }
+
       .salary {
         font-weight: 700;
         font-size: 20px;
-        line-height: 20px;
         color: $black;
+
+        @media (max-width: 600px) {
+          font-size: 16px;
+        }
       }
 
       .dot {
@@ -53,13 +68,20 @@
         text-align: center;
         margin: 0 12px;
         color: $grey600;
+
+        @media (max-width: 700px) {
+          display: none;
+        }
       }
 
       .type_of_work {
         font-weight: 400;
         font-size: 20px;
-        line-height: 20px;
         color: $black;
+
+        @media (max-width: 600px) {
+          font-size: 16px;
+        }
       }
     }
 
@@ -75,17 +97,9 @@
       .town {
         font-weight: 400;
         font-size: 16px;
-        line-height: 140%;
         color: $black;
         margin-left: 8px;
       }
-    }
-
-    .star_container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-left: 10px;
     }
   }
 
@@ -101,6 +115,10 @@
       font-size: 20px;
       line-height: 20px;
       color: $black;
+
+      @media (max-width: 600px) {
+        font-size: 16px;
+      }
     }
 
     ul {

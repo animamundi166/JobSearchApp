@@ -16,7 +16,9 @@
   outline: none;
   border: none;
 
-  p {
+  p,
+  a,
+  div {
     margin: 0;
     padding: 0;
   }
@@ -24,8 +26,12 @@
   a {
     text-decoration: none;
   }
-}
 
-li {
-  margin-left: 30px;
+  li {
+    margin-left: 30px;
+
+    @media (max-width: 600px) {
+      margin-left: 15px;
+    }
+  }
 }

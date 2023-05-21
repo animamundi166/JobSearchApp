@@ -1,9 +1,9 @@
 import styles from './Header.module.scss';
 import { ReactComponent as Logo } from '../../assets/Logo.svg';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { Burger } from '@mantine/core';
 import { useContext } from 'react';
-import { DrawerContext } from '../../providers/context';
+import { DrawerContext } from '../../providers/Drawer/context';
 import { useMediaQuery } from '@mantine/hooks';
 import { ReactComponent as Favorite } from '../../assets/Favorite.svg';
 import { ReactComponent as Search } from '../../assets/Search.svg';
@@ -11,6 +11,7 @@ import { ReactComponent as Search } from '../../assets/Search.svg';
 const setActive = ({ isActive }) => (isActive ? styles.active : '');
 
 const Header = () => {
+  const { pathname } = useLocation();
   const matches = useMediaQuery('(max-width: 1024px)');
   const { opened, toggle } = useContext(DrawerContext);
 
@@ -30,7 +31,9 @@ const Header = () => {
           </NavLink>
         </nav>
 
-        <Burger opened={opened} onClick={toggle} className={styles.burger} />
+        {pathname === '/' && (
+          <Burger opened={opened} onClick={toggle} className={styles.burger} />
+        )}
       </div>
     </header>
   );

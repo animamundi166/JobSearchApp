@@ -1,10 +1,12 @@
 import style from './SearchPanel.module.scss';
 import { ReactComponent as SearchIcon } from '../../assets/Search.svg';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { params } from '../../constants';
+import { ParamsContext } from '../../providers/Params/context';
 
-const SearchPanel = ({ refetch, setPage }) => {
+const SearchPanel = ({ refetch }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const { setPage } = useContext(ParamsContext);
 
   const handleButtonClick = () => {
     params.keyword = searchTerm;

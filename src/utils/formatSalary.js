@@ -1,7 +1,10 @@
-export const formatSalary = (from, to, currency) => {
+export const formatSalary = (agreement, from, to, currency) => {
   let text = '';
 
-  if ((from === 0) & (to === 0)) {
+  if (agreement) {
+    text = 'по договоренности';
+
+  } else if ((from === 0) & (to === 0)) {
     text = 'не указана';
 
   } else if (from === 0) {

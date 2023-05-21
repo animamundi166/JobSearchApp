@@ -7,6 +7,7 @@ export const transformVacancyResponse = (item) => {
     minPayment: item.payment_from,
     maxPayment: item.payment_to,
     currency: item.currency,
+    agreement: item.agreement,
     description: item.vacancyRichText,
   }
 }

@@ -10,6 +10,10 @@
     display: flex;
     justify-content: space-between;
     align-items: start;
+
+    svg {
+      margin-left: 15px;
+    }
   }
 
   .profession {
@@ -30,78 +34,73 @@
       }
     }
   }
-}
 
-.star_container {
-  margin-left: 15px;
-  height: 24px;
-}
-
-.salary_and_type {
-  display: flex;
-  align-items: center;
-  margin: 12px 0;
-
-  @media (max-width: 600px) {
-    flex-direction: column;
-    align-items: start;
-  }
-
-  .salary {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
-    color: $black;
-
-    @media (max-width: 400px) {
-      font-size: 14px;
-    }
-  }
-
-  .dot {
-    font-family: 'Poppins';
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 20px;
-    text-align: center;
-    margin: 0 12px;
-    color: $grey600;
+  .salary_and_type {
+    display: flex;
+    align-items: center;
+    margin: 12px 0;
 
     @media (max-width: 600px) {
-      display: none;
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .salary {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
+      color: $black;
+
+      @media (max-width: 400px) {
+        font-size: 14px;
+      }
+    }
+
+    .dot {
+      font-family: 'Poppins';
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 20px;
+      text-align: center;
+      margin: 0 12px;
+      color: $grey600;
+
+      @media (max-width: 600px) {
+        display: none;
+      }
+    }
+
+    .type_of_work {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      color: $black;
+
+      @media (max-width: 400px) {
+        font-size: 14px;
+      }
     }
   }
 
-  .type_of_work {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
-    color: $black;
+  .location {
+    display: flex;
+    align-items: center;
 
-    @media (max-width: 400px) {
-      font-size: 14px;
+    .location_icon {
+      width: 20px;
+      height: 20px;
     }
-  }
-}
 
-.location {
-  display: flex;
-  align-items: center;
+    .town {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: $black;
+      margin-left: 8px;
 
-  .location_icon {
-    width: 20px;
-    height: 20px;
-  }
-
-  .town {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    color: $black;
-    margin-left: 8px;
-
-    @media (max-width: 400px) {
-      font-size: 14px;
+      @media (max-width: 400px) {
+        font-size: 14px;
+      }
     }
   }
 }
