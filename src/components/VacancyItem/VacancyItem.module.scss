@@ -9,16 +9,20 @@
   .profession_star {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
   }
 
   .profession {
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
+    color: $blue500Main;
+
+    @media (max-width: 400px) {
+      font-size: 18px;
+    }
 
     a {
-      text-decoration: none;
       color: $blue500Main;
 
       &:visited {
@@ -26,56 +30,78 @@
       }
     }
   }
+}
 
-  .salary_and_type {
-    margin: 12px 0;
+.star_container {
+  margin-left: 15px;
+  height: 24px;
+}
 
-    .salary {
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 20px;
-      color: $black;
-    }
+.salary_and_type {
+  display: flex;
+  align-items: center;
+  margin: 12px 0;
 
-    .dot {
-      width: 9px;
-      height: 21px;
-      font-family: 'Poppins';
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 21px;
-      text-align: center;
-      margin: 12px;
-      color: $grey600;
-    }
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: start;
+  }
 
-    .type_of_work {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 20px;
-      color: $black;
+  .salary {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: $black;
+
+    @media (max-width: 400px) {
+      font-size: 14px;
     }
   }
 
-  .location {
-    display: flex;
-    align-items: center;
+  .dot {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    margin: 0 12px;
+    color: $grey600;
 
-    .location_icon {
-      width: 20px;
-      height: 20px;
-    }
-
-    .town {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 19px;
-      color: $black;
-      margin-left: 8px;
+    @media (max-width: 600px) {
+      display: none;
     }
   }
 
-  .star_container {
-    margin-left: 10px;
+  .type_of_work {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: $black;
+
+    @media (max-width: 400px) {
+      font-size: 14px;
+    }
+  }
+}
+
+.location {
+  display: flex;
+  align-items: center;
+
+  .location_icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .town {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: $black;
+    margin-left: 8px;
+
+    @media (max-width: 400px) {
+      font-size: 14px;
+    }
   }
 }

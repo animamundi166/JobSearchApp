@@ -25,7 +25,7 @@ const VacancyItem = ({ vacancy }) => {
         </div>
       </div>
 
-      <p className={styles.salary_and_type}>
+      <div className={styles.salary_and_type}>
         <span className={styles.salary}>
           з/п{' '}
           {formatSalary(
@@ -36,10 +36,10 @@ const VacancyItem = ({ vacancy }) => {
         </span>
         <span className={styles.dot}>•</span>
         <span className={styles.type_of_work}>{vacancy.worktime}</span>
-      </p>
+      </div>
 
       <p className={styles.location}>
-        <Location />
+        <Location className={styles.location_icon} />
         <span className={styles.town}>{vacancy.town}</span>
       </p>
     </div>

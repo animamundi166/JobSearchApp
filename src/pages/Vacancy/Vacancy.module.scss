@@ -24,20 +24,21 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      height: 24px;
     }
 
     .profession {
-      font-family: 'Inter';
       font-weight: 700;
       font-size: 28px;
       line-height: 34px;
     }
 
     .salary_and_type {
-      margin: 17px 0;
+      display: flex;
+      align-items: center;
+      padding: 20px 0;
 
       .salary {
-        font-family: 'Inter';
         font-weight: 700;
         font-size: 20px;
         line-height: 20px;
@@ -45,19 +46,16 @@
       }
 
       .dot {
-        width: 9px;
-        height: 21px;
         font-family: 'Poppins';
         font-weight: 400;
         font-size: 20px;
         line-height: 21px;
         text-align: center;
-        margin: 12px;
+        margin: 0 12px;
         color: $grey600;
       }
 
       .type_of_work {
-        font-family: 'Inter';
         font-weight: 400;
         font-size: 20px;
         line-height: 20px;
@@ -75,7 +73,6 @@
       }
 
       .town {
-        font-family: 'Inter';
         font-weight: 400;
         font-size: 16px;
         line-height: 140%;
@@ -85,6 +82,9 @@
     }
 
     .star_container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin-left: 10px;
     }
   }
@@ -97,7 +97,6 @@
 
     p,
     b {
-      font-family: 'Inter';
       font-weight: 700;
       font-size: 20px;
       line-height: 20px;
@@ -107,7 +106,6 @@
     ul {
       margin-top: 16px;
       margin-bottom: 20px;
-      font-family: 'Inter';
       font-weight: 400;
       font-size: 16px;
       line-height: 140%;

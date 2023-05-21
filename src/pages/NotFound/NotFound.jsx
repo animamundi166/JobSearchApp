@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const NotFound = () => {
   const navigate = useNavigate();
-  Object.assign(params, initialParams);
+  Object.assign(params, initialParams, (params.keyword = ''));
 
   return (
     <div className={styles.container}>

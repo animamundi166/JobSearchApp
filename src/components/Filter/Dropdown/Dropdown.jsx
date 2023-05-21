@@ -36,6 +36,7 @@ export function Dropdown({ catalogValue, setCatalogValue }) {
           fontSize: 14,
         },
         item: {
+          whiteSpace: 'initial',
           fontSize: 14,
           '&[data-hovered]': { background: '#DEECFF' },
           '&[data-selected], &[data-selected]:hover': { background: '#5E96FC' },

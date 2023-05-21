@@ -1,12 +1,15 @@
+import { useContext, useState } from 'react';
 import style from './Filter.module.scss';
 import { ReactComponent as ResetIcon } from '../../assets/Reset.svg';
 import { Dropdown } from './Dropdown/Dropdown';
 import { InputFrom } from './NumberInputs/InputFrom';
 import { initialParams, params } from '../../constants';
 import { InputTo } from './NumberInputs/InputTo';
-import { useState } from 'react';
+import { DrawerContext } from '../../providers/context';
 
 const Filter = ({ refetch, setPage }) => {
+  const { toggle } = useContext(DrawerContext);
+
   const [catalogValue, setCatalogValue] = useState(null);
   const [inputFromValue, setInputFromValue] = useState();
   const [inputToValue, setInputToValue] = useState();
@@ -22,9 +25,8 @@ const Filter = ({ refetch, setPage }) => {
     params.page = 0;
     refetch();
     setPage(1);
+    toggle();
   };
-
-  console.log(params);
 
   return (
     <div className={style.main}>

@@ -2,10 +2,22 @@
 
 header {
   background-color: $white;
-  padding: 0 25px;
+  padding: 0 50px;
+  display: flex;
+  align-items: center;
+  height: 84px;
+
+  .search_icon {
+    width: 23px;
+    height: 23px;
+  }
+
+  .favorite_icon {
+    width: 25px;
+    height: 25px;
+  }
 
   .container {
-    height: 84px;
     width: 1116px;
     display: flex;
     align-items: center;
@@ -26,6 +38,10 @@ header {
       line-height: 36px;
       letter-spacing: -0.02em;
       color: $black;
+
+      @media (max-width: 500px) {
+        display: none;
+      }
     }
   }
 
@@ -47,15 +63,36 @@ header {
       color: $black;
       padding: 5px;
 
+
+      svg {
+        width: 25px;
+      }
+
       &:hover {
         color: $blue500Main;
         font-weight: 500;
       }
+    }
+
+    @media (max-width: 1024px) {
+      justify-content: center;
     }
   }
 
   .active {
     color: $blue500Main;
     font-weight: 500;
+
+    svg * {
+      stroke: $blue500Main;
+    }
+  }
+
+  .burger {
+    display: none;
+
+    @media (max-width: 1024px) {
+      display: block;
+    }
   }
 }

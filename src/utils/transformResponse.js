@@ -14,6 +14,6 @@ export const transformVacancyResponse = (item) => {
 export const transformCataloguesResponse = (item) => {
   return {
     value: String(item.key),
-    label: item.title_trimmed,
+    label: item.title,
   }
 }

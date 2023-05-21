@@ -8,8 +8,12 @@ import { Loader } from '@mantine/core';
 import { useGetVacancies } from '../../hooks/useGetVacancies';
 import VacanciesList from '../../components/VacanciesList/VacanciesList';
 import { useNavigate } from 'react-router-dom';
+import DrawerWrapper from '../../components/Drawer/Drawer';
+import { useMediaQuery } from '@mantine/hooks';
 
 const Main = () => {
+  const matches = useMediaQuery('(max-width: 1024px)');
+
   const navigate = useNavigate();
 
   const [activePage, setPage] = useState(1);
@@ -31,13 +35,20 @@ const Main = () => {
     isSuccess &&
     (vacancies.total < MAX_TOTAL_ITEMS ? vacancies.total : MAX_TOTAL_ITEMS);
 
-  if (error || total === 0) {
+  if (error || (vacancies && total === 0)) {
     navigate('/404');
   }
 
   return (
     <div className={styles.card}>
-      <Filter refetch={refetch} setPage={setPage} />
+      {matches ? (
+        <DrawerWrapper>
+          <Filter refetch={refetch} setPage={setPage} />
+        </DrawerWrapper>
+      ) : (
+        <Filter refetch={refetch} setPage={setPage} />
+      )}
+
       <div className={styles.right_column}>
         <SearchPanel refetch={refetch} setPage={setPage} />
         {isLoading ? (

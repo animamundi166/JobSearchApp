@@ -9,6 +9,8 @@ import Vacancy from './pages/Vacancy/Vacancy';
 import { MantineProvider } from '@mantine/core';
 import { theme } from './styles/theme';
 import NotFound from './pages/NotFound/NotFound';
+import { StrictMode } from 'react';
+import DrawerProvider from './providers/DrawerProvider';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -46,9 +48,13 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <MantineProvider theme={theme}>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
-  </MantineProvider>
+  <StrictMode>
+    <MantineProvider theme={theme}>
+      <QueryClientProvider client={queryClient}>
+        <DrawerProvider>
+          <RouterProvider router={router} />
+        </DrawerProvider>
+      </QueryClientProvider>
+    </MantineProvider>
+  </StrictMode>
 );
