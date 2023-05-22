@@ -15,6 +15,9 @@ export const instance = axios.create({
 instance.interceptors.request.use(
   (config) => {
     const token = JSON.parse(localStorage.getItem('token'));
+    if (!token || token.ttl * 1000 < Date.now()) {
+      getToken();
+    }
     if (token) {
       config.headers.Authorization = `Bearer ${token.access_token}`;
     }

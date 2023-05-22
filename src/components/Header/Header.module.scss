@@ -16,6 +16,10 @@ header {
     display: flex;
     align-items: center;
     margin: 0 auto;
+
+    @media (max-width: 1024px) {
+      width: 773px;
+    }
   }
 
   .logo_section {
