@@ -9,13 +9,7 @@ const VacancyItem = ({ vacancy }) => {
     <div data-elem={`vacancy-${vacancy.id}`} className={styles.card}>
       <div className={styles.profession_star}>
         <p className={styles.profession}>
-          <Link
-            to={`/vacancy/${vacancy.id}`}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            {vacancy.profession}
-          </Link>
+          <Link to={`/vacancy/${vacancy.id}`}>{vacancy.profession}</Link>
         </p>
         <StarButton
           dataElem={`vacancy-${vacancy.id}-shortlist-button`}
