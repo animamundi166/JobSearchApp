@@ -10,6 +10,7 @@ const StarButton = ({ vacancy }) => {
     <Favorite
       className={clsx(styles.star, isFavorited && styles.star_filled)}
       onClick={toggleFavorited}
+      data-elem={`vacancy-${vacancy.id}-shortlist-button`}
     />
   );
 };

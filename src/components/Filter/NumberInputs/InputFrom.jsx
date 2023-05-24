@@ -12,6 +12,7 @@ export function InputFrom() {
       placeholder='От'
       value={inputFromValue}
       onChange={setInputFromValue}
+      data-elem='salary-from-input'
     />
   );
 }

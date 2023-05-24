@@ -8,6 +8,11 @@ export function InputTo() {
   params.payment_to = inputToValue;
 
   return (
-    <Input placeholder='До' value={inputToValue} onChange={setInputToValue} />
+    <Input
+      placeholder='До'
+      value={inputToValue}
+      onChange={setInputToValue}
+      data-elem='salary-to-input'
+    />
   );
 }
